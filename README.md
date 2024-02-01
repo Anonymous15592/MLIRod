@@ -2,7 +2,7 @@
 
 # MLIRod
 
-Welcome to the home page of MLIRod's repository, which contains three folders:
+Welcome to the home page of MLIRod's repository, which contains four folders:
 
 ``src`` contains the source code of MLIRod.
 
