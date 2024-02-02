@@ -10,13 +10,20 @@ Welcome to the home page of MLIRod's repository, which contains four folders:
 
 ``data`` contains the experiment data of MLIRod.
 
-```scripts``` contains the fuzz script that uses MLIRod.
+```scripts``` contains the fuzz script of MLIRod.
+
+This page mainly describes the ``src`` and ```scripts```, the description of ```exp``` and ```data``` are shown in the README file in the corresponding folder.
 
 # Build MLIRod
 
-Use following commands to build MLIRod:
+**Note that we integrated MLIRod, MLIRSmith, and MLIR compiler infrastructure together into**
+```src/mlir-fuzz-smith```
+**, you can build all of them together!**
+
+Use the following commands to build MLIRod, MLIRSmith, and MLIR compiler infrastructure together:
 
 ```
+cd src/mlir-fuzz-smith
 mkdir build
 cd build
 cmake -G Ninja ../llvm \
@@ -48,6 +55,8 @@ or use settings:
 ```
 to enable gcov for line coverage collection.
 
+```src/mlir-fuzz-smith``` is developed based on LLVM repository (git version ```eb601430d3d7f45c30ef8d793a45cbcedf910577```), and more detailed information about building MLIR compiler infrastructure can be found in https://mlir.llvm.org/getting_started/
+
 ---
 
 To use MLIRod, you can find ```mlirfuzz.py``` in ```script```, and run the following command:
@@ -65,4 +74,8 @@ python mlirfuzz.py \
 --clean True > log.txt
 ```
 
-You can use ```--help``` to obtain more inforamtion about the settings.
+The ```${seed_dir}``` denotes the path of the existing seed directory.
+
+The ```${build}``` denotes the build path of MLIRod.
+
+You can use ```--help``` to obtain more information about the settings.
