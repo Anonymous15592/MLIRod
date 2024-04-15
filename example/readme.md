@@ -26,8 +26,8 @@ the node insertion mutation adds an ```arith.addi``` operation after Line 9.
 This added ```arith.addi``` operation takes ```%d``` (defined at Line 07) and ```%e``` (defined at Line 09) as operands.
 In terms of the operation dependency graph, 
 the node insertion mutation involves several steps:
-1. It generates an operation instance of the ```arith.addi``` operation and establishes the control edge $e^{control}_{06,++}$ (where line numbers represent corresponding nodes).
-2. To ensure the correctness of the mutated code, $e^{data}_{07,++}$ and $e^{data}_{09,++}$ are established to provide type-compatible and accessible operands.
+1. It generates an operation instance of the ```arith.addi``` operation and establishes the control edge $e^{control}\_{06,++}$ (where line numbers represent corresponding nodes).
+2. To ensure the correctness of the mutated code, $e^{control}\_{07,++}$ and $e^{data}\_{09,++}$ are established to provide type-compatible and accessible operands.
 
 <div align=center><img src="node.insertion.code.example.png" alt="ODG example" width=400 title="example"></div>
 <center>Figure 3: Example code of node insertion</center>
@@ -49,9 +49,9 @@ This deletion necessitates replacing the use of ```%b```
 specifically in the operands of ```arith.addi``` at Line 07 and ```arith.addi``` at Line 08.
 Regarding the operation dependency graph, 
 the node deletion mutation involves the following steps:
-1. Removal of the ```03:arith.constant``` operation instance from the ODG, along with the associated operation dependency edges: $e^{control}_{01,03}$, $e^{data}_{03,07}$, and $e^{data}_{03,08}$.
-2. However, deleting $e^{data}_{03,07}$ and $e^{data}_{03,08}$ would make the mutated MLIR program invalid.
-3. To address this, the data deletion mutation randomly selects type-compatible and accessible operands and establishes the corresponding data dependency edges: $e^{data}_{02,07}$ and $e^{data}_{07,08}$.
+1. Removal of the ```03:arith.constant``` operation instance from the ODG, along with the associated operation dependency edges: $e^{control}\_{01,03}$, $e^{data}\_{03,07}$, and $e^{data}\_{03,08}$.
+3. However, deleting $e^{data}\_{03,07}$ and $e^{data}\_{03,08}$ would make the mutated MLIR program invalid.
+4. To address this, the data deletion mutation randomly selects type-compatible and accessible operands and establishes the corresponding data dependency edges: $e^{data}\_{02,07}$ and $e^{data}\_{07,08}$.
 
 <div align=center><img src="node.deletion.code.example.png" alt="ODG example" width=400 title="example"></div>
 <center>Figure 5: Example code of node deletion</center>
@@ -69,8 +69,8 @@ The data dependency modification mutation is straightforward.
 In this example,
 the data dependency modification mutation replaces the operands of ```arith.addi``` at Line 09 with other type-compatible and accessible operands, i,e, ```%b``` and ```%a```.
 Concerning the operation dependency graph, 
-the data dependency modification mutation replaces existing $e^{data}_{07,09}$ and $e^{data}_{04,09}$ with valid data dependency edges, 
-i.e., $e^{data}_{03,09}$ and $e^{data}_{02,09}$.
+the data dependency modification mutation replaces existing $e^{data}\_{07,09}$ and $e^{data}\_{04,09}$ with valid data dependency edges, 
+i.e., $e^{data}\_{03,09}$ and $e^{data}\_{02,09}$.
 
 <div align=center><img src="data.dependency.modification.code.exmpale.png" alt="ODG example" width=400 title="example"></div>
 <center>Figure 7: Example code of data dependency modification</center>
@@ -97,8 +97,8 @@ the control dependency modification mutation first calculates a data-dependent o
 The data-dependent set for ```08:arith.addi``` includes { ```07:arith.addi```, ```03:arith.constant```, ```02:arith.constant``` }.
 Then, it checks whether operation instances in the data-dependent set are located in the same block as the target operation instance (```08:arith.addi```). 
 After the calculation, we determine that ```07:arith.addi``` is located in the same block as ```08:arith.addi```, 
-indicated by $e^{control}_{06,07} \in E$ and $e^{control}_{06,08} \in E$.
-This implies that the control dependency modification mutation should replace $e^{control}_{06,07}$ and $e^{control}_{06,08}$ with $e^{control}_{01,07}$ and $e^{control}_{01,08}$ respectively.
+indicated by $e^{control}\_{06,07} \in E$ and $e^{control}\_{06,08} \in E$.
+This implies that the control dependency modification mutation should replace $e^{control}\_{06,07}$ and $e^{control}\_{06,08}$ with $e^{control}\_{01,07}$ and $e^{control}\_{01,08}$ respectively.
 However, another issue arises: 
 where should the moved statements be located? 
 Here, the previously calculated data-dependent set assists again. 
