@@ -4,12 +4,12 @@ To facilitate comprehension, we've included simple mutation examples here to ill
 
 The exmaple program is: 
 <div align=center><img src="original.code.example.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 1: Example code</center>
+<div align=center>Figure 1: Example code</div>
 
 The corresponding ODG is:
 
 <div align=center><img src="ODG.png" alt="ODG example" width=400></div>
-<center>Figure 2: Example ODG</center>
+<div align=center>Figure 2: Example ODG</div>
 
 In the following sections, 
 changes in the code are highlighted in green. 
@@ -26,15 +26,15 @@ the node insertion mutation adds an ```arith.addi``` operation after Line 9.
 This added ```arith.addi``` operation takes ```%d``` (defined at Line 07) and ```%e``` (defined at Line 09) as operands.
 In terms of the operation dependency graph, 
 the node insertion mutation involves several steps:
-1. It generates an operation instance of the ```arith.addi``` operation and establishes the control edge $e^{control}\_{06,++}$ (where line numbers represent corresponding nodes).
-2. To ensure the correctness of the mutated code, $e^{control}\_{07,++}$ and $e^{data}\_{09,++}$ are established to provide type-compatible and accessible operands.
+1. It generates an operation instance of the ```arith.addi``` operation and establishes the control edge $e^{control}\_{06,add}$ (where line numbers represent corresponding nodes).
+2. To ensure the correctness of the mutated code, $e^{control}\_{07,add}$ and $e^{data}\_{09,add}$ are established to provide type-compatible and accessible operands.
 
 <div align=center><img src="node.insertion.code.example.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 3: Example code of node insertion</center>
+<div align=center>Figure 3: Example code of node insertion</div>
 
 
 <div align=center><img src="node.insertion.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 4: Example ODG of node insertion</center>
+<div align=center>Figure 4: Example ODG of node insertion</div>
 
 ## Node Deletion (R2)
 
@@ -54,10 +54,10 @@ the node deletion mutation involves the following steps:
 4. To address this, the data deletion mutation randomly selects type-compatible and accessible operands and establishes the corresponding data dependency edges: $e^{data}\_{02,07}$ and $e^{data}\_{07,08}$.
 
 <div align=center><img src="node.deletion.code.example.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 5: Example code of node deletion</center>
+<div align=center>Figure 5: Example code of node deletion</div>
 
 <div align=center><img src="node.deletion.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 6: Example ODG of node deletion</center>
+<div align=center>Figure 6: Example ODG of node deletion</div>
 
 ## Data Dependency Modification (R3)
 
@@ -73,10 +73,10 @@ the data dependency modification mutation replaces existing $e^{data}\_{07,09}$ 
 i.e., $e^{data}\_{03,09}$ and $e^{data}\_{02,09}$.
 
 <div align=center><img src="data.dependency.modification.code.exmpale.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 7: Example code of data dependency modification</center>
+<div align=center>Figure 7: Example code of data dependency modification</div>
 
 <div align=center><img src="data.dependency.modification.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 8: Example ODG of data dependency modification</center>
+<div align=center>Figure 8: Example ODG of data dependency modification</div>
 
 ## Control Dependency Modification
 
@@ -106,7 +106,7 @@ Note that the ```scf.if``` is at Line 06, and the corresponding operation of ope
 Thus, the two operations should move to Lines 03-06.
 
 <div align=center><img src="control.dependency.modification.code.example.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 9: Example code of control dependency modification</center>
+<div align=center>Figure 9: Example code of control dependency modification</div>
 
 <div align=center><img src="control.dependency.modification.png" alt="ODG example" width=400 title="example"></div>
-<center>Figure 10: Example ODG of control dependency modification</center>
+<div align=center>Figure 10: Example ODG of control dependency modification</div>
