@@ -78,7 +78,7 @@ i.e., $e^{data}\_{03,09}$ and $e^{data}\_{02,09}$.
 <div align=center><img src="data.dependency.modification.png" alt="ODG example" width=400 title="example"></div>
 <div align=center>Figure 8: Example ODG of data dependency modification</div>
 
-## Control Dependency Modification
+## Control Dependency Modification (R4)
 
 Control dependency modification (R4) denotes updating the control dependency of a randomly selected node in the ODG of a given MLIR program, 
 while keeping all the data dependencies unchanged. 
