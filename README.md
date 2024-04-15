@@ -6,11 +6,13 @@ Welcome to the home page of MLIRod's repository, which contains four folders:
 
 ``src`` contains the source code of MLIRod.
 
-``exp`` contains the experiment script of MLIRod.
+``exp`` contains the experiment script of MLIRod, as well as the report of comparison between MLIRod and NNSmith.
 
 ``data`` contains the experiment data of MLIRod.
 
 ```scripts``` contains the fuzz script of MLIRod.
+
+```example``` contains detailed examples of four mutation rules in MLIRod.
 
 This page mainly describes the ``src`` and ```scripts```, the description of ```exp``` and ```data``` are shown in the README file in the corresponding folder.
 
@@ -79,3 +81,4 @@ The ```${seed_dir}``` denotes the path of the existing seed directory.
 The ```${build}``` denotes the build path of MLIRod.
 
 You can use ```--help``` to obtain more information about the settings.
+
